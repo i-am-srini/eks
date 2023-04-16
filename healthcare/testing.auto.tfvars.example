@@ -1,0 +1,12 @@
+project_id          = "eden-terraform-test"
+healthcare_sa       = "serviceAccount:tf-seed-sa@terraform-seed-prj.iam.gserviceaccount.com"
+healthcare_name     = "example-healthcare-dataset"
+healthcare_location = "us-central1"
+
+
+create_pub_sub = false
+topic_name     = "healthcare-test"
+
+create_big_query = false
+dataset_id       = "healthcare_test"
+table_id         = "healthcare_test"

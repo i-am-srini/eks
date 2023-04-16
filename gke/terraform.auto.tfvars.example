@@ -1,0 +1,32 @@
+project_id            = "eden-terraform-test"
+shared_vpc_name       = "test-vpc"
+shared_vpc_project_id = "eden-terraform-test"
+
+bastion_zone                  = "us-east1-b"
+bastion_subnet_name           = "test-subnet2"
+bastion_service_account_email = "464033551421-compute@developer.gserviceaccount.com"
+
+gke_settings = {
+  gke1 = {
+    name                      = "gke-1"
+    subnetwork                = "test-subnet"
+    ip_range_pods             = "pod-ip-range"
+    ip_range_services         = "services-ip-range"
+    master_ipv4_cidr_block    = "10.0.0.0/28"
+    enable_external_ip        = true
+    default_max_pods_per_node = 64
+    region                    = "us-east1"
+    node_pool_min_count       = 2
+    node_pool_max_count       = 3
+    machine_type              = "e2-standard-4"
+    master_authorized_networks = [
+      {
+        cidr_block   = "10.10.0.0/28"
+        display_name = "additional network"
+      }
+    ]
+  },
+}
+
+bin_auth_attestor_names = ["bin_auth_attestor_names"]
+attestors_keyring_id    = "projects/eden-terraform-test/locations/us-east1/keyRings/compute_test"

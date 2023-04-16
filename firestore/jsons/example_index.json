@@ -1,0 +1,12 @@
+[
+    {
+        "collection"  : "test1",
+        "document_id" : "mytest1",
+        "fields"      : {"something":{"mapValue":{"fields":{"akey":{"stringValue":"avalue"}}}}}
+    },
+    {
+        "collection"  : "test2",
+        "document_id" : "mytest2",
+        "fields"      : {"something":{"mapValue":{"fields":{"akey":{"stringValue":"avalue"}}}}}
+    }
+]

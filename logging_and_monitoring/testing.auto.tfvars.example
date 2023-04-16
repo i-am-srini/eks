@@ -1,0 +1,36 @@
+#for logging module
+project_id = "rinat-monitoring-terraform"
+sinks = {
+  my-test = {
+    name                   = "my-test1"
+    destination            = "storage.googleapis.com/testrinat"
+    filter                 = "resource.type = gce_instance AND severity >= WARNING"
+    unique_writer_identity = true
+  },
+  my-test2 = {
+    name                   = "my-test2"
+    destination            = "storage.googleapis.com/testrinat"
+    filter                 = "resource.type = gce_instance AND severity >= WARNING"
+    unique_writer_identity = true
+  }
+}
+
+#for monitoring module
+monitoring_alerts = {
+  test = {
+    display_name = "test"
+    combiner     = "OR"
+    conditions = {
+      display_name = "new test condition"
+      condition_threshold = {
+        filter     = "metric.type=\"compute.googleapis.com/instance/disk/write_bytes_count\" AND resource.type=\"gce_instance\""
+        duration   = "60s"
+        comparison = "COMPARISON_GT"
+        aggregations = {
+          alignment_period   = "60s"
+          per_series_aligner = "ALIGN_RATE"
+        }
+      }
+    }
+  }
+}
