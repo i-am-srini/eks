@@ -1,0 +1,18 @@
+project_id   = "rinat-monitoring-terraform"
+network_name = "projects/rinat-monitoring-terraform/global/networks/subnet-test"
+subnets = [
+  {
+    subnet_name   = "newtest-subnetwork"
+    subnet_ip     = "10.2.0.0/16"
+    subnet_region = "us-central1"
+  }
+]
+secondary_ranges = {
+  subnet-01 = [
+    {
+      range_name    = "test"
+      ip_cidr_range = "192.168.10.0/24"
+    }
+  ]
+}
+service_project = "rinat-terraform-test"

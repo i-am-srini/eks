@@ -1,0 +1,20 @@
+labels = {
+  "its-dcs-billingcode1"     = "fpe03521-sg-sc-cl-3008"
+  "its-dcs-primarycontact"   = "abhijkulkarni"
+  "its-dcs-secondarycontact" = "rutalreja"
+  "its-dcs-function"         = "con"
+  "its-dcs-memberfirm"       = "us"
+  "its-dcs-environment"      = "sbx"
+}
+project_prefix            = "cbsd"
+enable_fortress           = true
+fortress_deployment       = "spoke"
+terraform_service_account = "tf-seed-sa@terraform-seed-prj.iam.gserviceaccount.com"
+org_id                    = "56387254055"
+folder_id                 = "735231653504"
+billing_account           = "0142BE-265FBF-693E07"
+project_name              = "fortress-spoke"
+billing_code              = "fpe03521-sg-sc-cl-3008"
+environment               = "dev"
+enable_firestore          = false
+fortress_hub_project_id   = "cbsd-dev-fortress-hub-f097"

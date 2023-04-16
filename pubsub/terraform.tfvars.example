@@ -1,0 +1,17 @@
+project_id = "rupin-sandbox-319918"
+topic_name = "test-topic"
+push_subscriptions = [
+    {
+      name                = "push-test"
+      push_endpoint       = "https://example.com/push"
+      additional_settings = {}
+    }
+]
+pull_subscriptions = [
+    {
+        name                = "pull-test"
+        additional_settings = {
+            enable_message_ordering    = true
+        }
+    }
+]
