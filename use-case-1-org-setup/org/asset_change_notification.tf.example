@@ -1,0 +1,61 @@
+/******************************************
+  Asset Change Notification
+*****************************************/
+
+# The topic where the resource change notifications will be sent.
+resource "google_pubsub_topic" "asset_project_feed" {
+  project = module.scc_notifications.project_id
+  name    = "asset_project_feed"
+}
+
+data "google_project" "scc_notifications_project" {
+  project_id = module.scc_notifications.project_id
+}
+
+resource "google_project_service_identity" "cloud_asset_sa" {
+  provider = google-beta
+
+  project = data.google_project.scc_notifications_project.project_id
+  service = "cloudasset.googleapis.com"
+}
+
+# Allow the publishing role to the Cloud Asset service account of the project that
+# was used for sending the notifications.
+resource "google_pubsub_topic_iam_member" "cloud_asset_writer" {
+  project = module.scc_notifications.project_id
+  topic   = google_pubsub_topic.asset_project_feed.id
+  role    = "roles/pubsub.publisher"
+  member  = "serviceAccount:${google_project_service_identity.cloud_asset_sa.email}"
+}
+
+# Create a feed to listen to public access of cloud storage bucket
+resource "google_cloud_asset_project_feed" "asset_project_feed_public_cloud_storage" {
+  count        = var.create_asset_feed_public_cloud_storage ? 1 : 0
+  project      = module.scc_notifications.project_id
+  feed_id      = "public_cloud_storage"
+  content_type = "IAM_POLICY"
+
+  asset_types = [
+    "storage.googleapis.com/Bucket",
+  ]
+
+  feed_output_config {
+    pubsub_destination {
+      topic = google_pubsub_topic.asset_project_feed.id
+    }
+  }
+
+  # TODO: make sure this expression actually works
+  condition {
+    expression  = <<-EOT
+    policy:(allUsers, allAuthenticatedUsers)
+    EOT
+    title       = "match bucket public access"
+    description = "Send notifications on permission change to bucket public access"
+  }
+
+  # Wait for the permission to be ready on the destination topic.
+  depends_on = [
+    google_pubsub_topic_iam_member.cloud_asset_writer,
+  ]
+}

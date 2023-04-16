@@ -1,0 +1,126 @@
+# // variables for bootstrap module
+# org_id               = "56387254055"
+# billing_account      = "0142BE-265FBF-693E07"
+# group_org_admins     = "tbd@deloittecyber.us"
+# group_billing_admins = "TBD"
+# primary_region       = "us-east1"
+# org_project_creators = ["il-eavital@deloitte.com"]
+
+// variables for org module
+org_id                    = "56387254055"
+billing_account           = "0142BE-265FBF-693E07"
+primary_region            = "us-east1"
+scc_notification_name     = "scc_notification"
+domain                    = "cbsd.deloitte.com"
+terraform_service_account = "tf-seed-sa@terraform-seed-prj.iam.gserviceaccount.com"
+
+# // variables for org module
+# domains_to_allow      = ["deloitte.com", "cbsd.deloitte.com"]
+# scc_notification_name = "scc_notification"
+# domain                = "deloitte.com"
+
+
+# // variables for env module
+# monitoring_workspace_users = "TBD"
+
+# // variables for network module
+# access_context_manager_policy_id = 123
+# dns_enable_logging               = true
+# subnetworks_enable_logging       = true
+# firewall_enable_logging          = true
+# bgp_asn_dns                  = 64667
+# target_name_server_addresses = []
+
+
+# // variables for project module
+# billing_code                       = "TBD"
+# primary_contact                    = "abhijkulkarni@deloitte.com"
+# secondary_contact                  = "rutalreja@deloitte.com"
+# activate_apis                      = []
+# environment                        = "TBD"
+# vpc_type                           = ""
+# skip_gcloud_download               = true
+# vpc_service_control_attach_enabled = false
+# vpc_service_control_perimeter_name = null
+# alert_spent_percents               = [0.5, 0.75, 0.9, 0.95]
+# alert_pubsub_topic                 = null
+# budget_amount                      = 1000
+
+// variables for gcs module
+project_id      = "eden-terraform-test"
+names           = ["bucket1", "bucket2"]
+prefix          = "slz-"
+bucket_location = "us-east1"
+storage_class   = "REGIONAL"
+labels = {
+  "its-dcs-billingcode1"     = "fpe03521-sg-sc-cl-3008"
+  "its-dcs-primarycontact"   = "abhijkulkarni"
+  "its-dcs-secondarycontact" = "rutalreja"
+  "its-dcs-function"         = "con"
+  "its-dcs-memberfirm"       = "us"
+  "its-dcs-environment"      = "sbx"
+}
+lifecycle_rules = [({ condition = { age = 3 }, action = { type = "Delete" } })]
+versioning      = true
+
+gcs_admin_group_id = "grp-gcp-cbsd-developers@cbsd.deloitte.com"
+gcs_write_group_id = "grp-gcp-cbsd-developers@cbsd.deloitte.com"
+
+use_existing_keyring = true
+keyring_name         = "keyring6-gcs_buckets"
+key_rotation_period  = "7776000s"
+prevent_destroy      = "false"
+// variables for compute engine module
+project_id              = "eden-terraform-test"
+compute_service_account = ""
+sa_prefix               = "vm-sa-"
+roles_list              = ["roles/compute.instanceAdmin", "roles/compute.loadBalancerAdmin"]
+instance_prefix         = "instance-"
+region                  = "us-east1"
+can_ip_forward          = "false"
+//disk_encryption_key = "projects/eden-terraform-test/locations/us/keyRings/eden/cryptoKeys/vm-test"
+disk_size_gb   = "100"
+disk_type      = "pd-standard"
+machine_type   = "n1-standard-1"
+source_image   = ""
+startup_script = ""
+metadata       = {}
+tags           = []
+network        = "test-vpc"
+subnetwork     = "test-subnet"
+num_instances  = 2
+zone           = "us-east1-b"
+access_config = [{
+  nat_ip       = ""
+  network_tier = "STANDARD"
+}]
+*/
+
+keyring_name        = "keyring-gcs_buckets"
+key_rotation_period = "7776000s"
+service_account_email = "terraform-testing@eden-terraform-test.iam.gserviceaccount.com"
+prevent_destroy = "false"
+
+# // variables for compute engine module
+# compute_service_account=""
+# sa_prefix="vm-sa-"
+# roles_list=["roles/compute.instanceAdmin","roles/compute.loadBalancerAdmin"]
+# instance_prefix="instance-"
+# region = "us-east1"
+# can_ip_forward      = "false"
+# disk_encryption_key = "projects/eden-terraform-test/locations/us/keyRings/eden/cryptoKeys/vm-key/cryptoKeyVersions/1"
+# disk_size_gb        = "100"
+# disk_type           = "pd-standard"
+# machine_type   = "n1-standard-1"
+# source_image   = "debian-10-buster-v20210721"
+# startup_script = ""
+# metadata = {}
+# tags       = []
+# network    = ""
+# subnetwork = ""
+# num_instances=2
+# zone="us-east1-b"
+# access_config=[{
+#   nat_ip       = ""
+#   network_tier = "Premium"
+# }]
