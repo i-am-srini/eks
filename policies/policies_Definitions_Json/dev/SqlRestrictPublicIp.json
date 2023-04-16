@@ -1,0 +1,6 @@
+{
+    "constraint": "constraints/sql.restrictPublicIp",
+    "policy_type": "bool",
+    "enforce": true
+}
+

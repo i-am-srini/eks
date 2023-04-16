@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/cloudfunctions.requireVPCConnector",
+    "policy_type": "bool",
+    "enforce": true
+}

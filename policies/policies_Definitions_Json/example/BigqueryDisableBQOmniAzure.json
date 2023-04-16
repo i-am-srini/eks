@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/bigquery.disableBQOmniAzure",
+    "policy_type": "bool",
+    "enforce": true
+}

@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.skipDefaultNetworkCreation",
+    "policy_type": "bool",
+    "enforce": true
+}

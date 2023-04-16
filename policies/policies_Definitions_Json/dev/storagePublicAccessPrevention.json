@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/storage.publicAccessPrevention",
+    "policy_type": "bool",
+    "enforce": true
+}

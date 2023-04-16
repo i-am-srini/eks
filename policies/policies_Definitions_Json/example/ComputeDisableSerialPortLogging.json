@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.disableSerialPortLogging",
+    "policy_type": "bool",
+    "enforce": true
+}

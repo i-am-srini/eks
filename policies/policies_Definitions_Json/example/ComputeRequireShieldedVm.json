@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.requireShieldedVm",
+    "policy_type": "bool",
+    "enforce": true
+}

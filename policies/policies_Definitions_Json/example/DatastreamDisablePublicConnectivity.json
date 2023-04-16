@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/datastream.disablePublicConnectivity",
+    "policy_type": "bool",
+    "enforce": true
+}

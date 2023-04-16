@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.restrictXpnProjectLienRemoval",
+    "policy_type": "bool",
+    "enforce": true
+}

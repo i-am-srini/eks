@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/sql.disableDefaultEncryptionCreation",
+    "policy_type": "bool",
+    "enforce": true
+}

@@ -1,0 +1,10 @@
+{
+    "constraint": "constraints/cloudbuild.allowedWorkerPools",
+    "policy_type": "list",
+    "enforce": true,
+    "allow": [""],
+    "allow_list_length": 0,
+    "deny": [""],
+    "deny_list_length": 0
+}
+

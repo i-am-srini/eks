@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.disableAllIpv6",
+    "policy_type": "bool",
+    "enforce": true
+}

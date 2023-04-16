@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.disableInternetNetworkEndpointGroup",
+    "policy_type": "bool",
+    "enforce": true
+}
