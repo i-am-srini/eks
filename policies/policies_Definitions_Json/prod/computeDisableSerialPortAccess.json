@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/compute.disableSerialPortAccess",
+    "policy_type": "bool",
+    "enforce": true
+}

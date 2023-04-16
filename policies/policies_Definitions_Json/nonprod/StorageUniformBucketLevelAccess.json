@@ -1,0 +1,5 @@
+{
+    "constraint": "constraints/storage.uniformBucketLevelAccess",
+    "policy_type": "bool",
+    "enforce": true
+}
