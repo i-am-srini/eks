@@ -1,0 +1,5 @@
+network            = "mycomposer-newtest"
+network_project_id = "rinat-monitoring-terraform"
+subnet_name        = "composer-test-subnetwork"
+subnetwork_region  = "us-central1"
+project_id         = "rinat-monitoring-terraform"

@@ -1,0 +1,31 @@
+project_id     = "eden-terraform-test"
+invoker_member = "serviceAccount:tf-seed-sa@terraform-seed-prj.iam.gserviceaccount.com"
+keyring_name   = "compute_test"
+# storage triger
+# event_trigger = {
+#   event_type = "google.storage.object.finalize",
+#   resource   = "cloud-function-storage-trigger-test"
+# }
+# entry_point = "helloGCS"
+# storage_bucket_object_source = "./files/storage-trigger.zip"
+
+# http triger
+# trigger_http                 = true
+# entry_point                  = "helloWorld"
+# event_trigger                = null
+# storage_bucket_object_source = "./files/http-trigger.zip"
+# bucket_name                  = "http-trigger-code"
+
+# Pub/Sub triger
+event_trigger = {
+  event_type = "google.pubsub.topic.publish",
+  resource   = "pubsub_trigger_test"
+}
+entry_point                  = "helloPubSub"
+storage_bucket_object_source = "./files/pubsub-trigger.zip"
+bucket_name                  = "pubsub-trigger-code"
+
+#cloud scheduler
+job_name = "pub-test"
+# scheduler_http_method = "POST"
+# scheduler_http_body = "{\"foo\":\"bar\"}"

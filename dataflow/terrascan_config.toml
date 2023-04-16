@@ -1,0 +1,5 @@
+[rules]
+  skip-rules = [
+    "AC_GCP_0241",
+    "AC_GCP_0234"
+  ]

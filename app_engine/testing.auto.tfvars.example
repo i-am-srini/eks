@@ -1,0 +1,8 @@
+#version_id = "v2"
+#service            = "test-rupin1"
+runtime            = "python39"
+source_code_bucket = "ae-files-4342531"
+project_id         = "slz-dev-vidhi-test-2a4f"
+location           = "us-east1"
+entrypoint         = "python3 ./main.py"
+#initialize_app     = false
